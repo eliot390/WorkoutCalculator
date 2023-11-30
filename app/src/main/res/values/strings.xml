@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Workout Calculator</string>
+    <string name="weight_lifted">Weight Lifted</string>
+    <string name="_1">1</string>
+    <string name="_100">100</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="reps_performed">Reps Performed</string>
+    <string name="_1rm">1RM</string>
+    <string name="_2rm">2RM</string>
+    <string name="_3rm">3RM</string>
+    <string name="_4rm">4RM</string>
+    <string name="_5rm">5RM</string>
+    <string name="_6rm">6RM</string>
+    <string name="_7rm">7RM</string>
+    <string name="_8rm">8RM</string>
+    <string name="estimated_rep_maxes">Estimated Rep Maxes</string>
+</resources>
