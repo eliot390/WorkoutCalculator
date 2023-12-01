@@ -2,11 +2,13 @@ package com.example.workoutcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText editWeightNumber;
 
     private SharedPreferences sharedPreferences;
-    private static final String CURR_VALUE_KEY = "currWeightValue";
+    private static final String CURR_VALUE_KEY = "repMaxWeightValue";
 
-    private int currWeightValue = 0;
+    private int repMaxWeightValue = 0;
     private EditText editRepNumber;
     private int currRepValue = 1;
 
@@ -28,32 +30,56 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        currWeightValue = sharedPreferences.getInt(CURR_VALUE_KEY, 0);
+        repMaxWeightValue = sharedPreferences.getInt(CURR_VALUE_KEY, 0);
 
         editWeightNumber = findViewById(R.id.editWeightNumber);
-        editWeightNumber.setText(String.valueOf(currWeightValue));
+        editWeightNumber.setText(String.valueOf(repMaxWeightValue));
         editRepNumber = findViewById(R.id.editRepsNumber);
         editRepNumber.setText(String.valueOf(currRepValue));
 
-        Button plusButtonWeight = findViewById(R.id.button_weight_plus);
-        Button minusButtonWeight = findViewById(R.id.button_weight_minus);
-        Button plusButtonReps = findViewById(R.id.button_reps_plus);
-        Button minusButtonReps = findViewById(R.id.button_reps_minus);
+//        Button plusButtonWeight = findViewById(R.id.button_weight_plus);
+//        Button minusButtonWeight = findViewById(R.id.button_weight_minus);
+//        Button plusButtonReps = findViewById(R.id.button_reps_plus);
+//        Button minusButtonReps = findViewById(R.id.button_reps_minus);
 
-        plusButtonWeight.setOnClickListener(v -> {
-            currWeightValue+=5;
-            editWeightNumber.setText(String.valueOf(currWeightValue));
-            updateRMs();
-            saveValueToSharedPrefs();
+        ImageView percentButton = findViewById(R.id.percentSign);
+        percentButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Percentage.class);
+            startActivity(intent);
         });
 
+//        plusButtonWeight.setOnClickListener(v -> {
+//            repMaxWeightValue+=5;
+//            editWeightNumber.setText(String.valueOf(repMaxWeightValue));
+//            updateRMs();
+//            saveValueToSharedPrefs();
+//        });
+//
+//        minusButtonWeight.setOnClickListener(v -> {
+//            if (repMaxWeightValue>0){
+//                repMaxWeightValue-=5;
+//                editWeightNumber.setText(String.valueOf(repMaxWeightValue));
+//                updateRMs();
+//                saveValueToSharedPrefs();
+//            }
+//        });
+
+        ImageView minusButtonWeight = findViewById(R.id.button_weight_minus);
         minusButtonWeight.setOnClickListener(v -> {
-            if (currWeightValue>0){
-                currWeightValue-=5;
-                editWeightNumber.setText(String.valueOf(currWeightValue));
+            if (repMaxWeightValue>0){
+                repMaxWeightValue-=5;
+                editWeightNumber.setText(String.valueOf(repMaxWeightValue));
                 updateRMs();
                 saveValueToSharedPrefs();
             }
+        });
+
+        ImageView plusButtonWeight = findViewById(R.id.button_weight_plus);
+        plusButtonWeight.setOnClickListener(v -> {
+            repMaxWeightValue+=5;
+            editWeightNumber.setText(String.valueOf(repMaxWeightValue));
+            updateRMs();
+            saveValueToSharedPrefs();
         });
 
         editWeightNumber.setOnFocusChangeListener((v, hasFocus) -> {
@@ -61,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 // If the EditText loses focus, update the currentValue
                 String valueStr = editWeightNumber.getText().toString();
                 if (!valueStr.isEmpty()) {
-                    currWeightValue = Integer.parseInt(valueStr);
+                    repMaxWeightValue = Integer.parseInt(valueStr);
                 }
-                editWeightNumber.setText(String.valueOf(currWeightValue));
+                editWeightNumber.setText(String.valueOf(repMaxWeightValue));
             }
         });
 
@@ -73,27 +99,43 @@ public class MainActivity extends AppCompatActivity {
                 // When the user presses "Done" on the soft keyboard, update currentValue
                 String valueStr = editWeightNumber.getText().toString();
                 if (!valueStr.isEmpty()) {
-                    currWeightValue = Integer.parseInt(valueStr);
+                    repMaxWeightValue = Integer.parseInt(valueStr);
                 }
-                editWeightNumber.setText(String.valueOf(currWeightValue));
+                editWeightNumber.setText(String.valueOf(repMaxWeightValue));
                 return true;
             }
             return false;
         });
 
+        ImageView minusButtonReps = findViewById(R.id.button_reps_minus);
+        minusButtonReps.setOnClickListener(v -> {
+            if (currRepValue>1){
+                currRepValue--;
+                editRepNumber.setText(String.valueOf(currRepValue));
+                updateRMs();
+            }
+        });
+
+        ImageView plusButtonReps = findViewById(R.id.button_reps_plus);
         plusButtonReps.setOnClickListener(v -> {
             currRepValue++;
             editRepNumber.setText(String.valueOf(currRepValue));
             updateRMs();
         });
 
-        minusButtonReps.setOnClickListener(v -> {
-            if (currRepValue>0){
-                currRepValue--;
-                editRepNumber.setText(String.valueOf(currRepValue));
-                updateRMs();
-            }
-        });
+//        plusButtonReps.setOnClickListener(v -> {
+//            currRepValue++;
+//            editRepNumber.setText(String.valueOf(currRepValue));
+//            updateRMs();
+//        });
+//
+//        minusButtonReps.setOnClickListener(v -> {
+//            if (currRepValue>1){
+//                currRepValue--;
+//                editRepNumber.setText(String.valueOf(currRepValue));
+//                updateRMs();
+//            }
+//        });
         
         rmFields[0] = findViewById(R.id._1RM_weight);
         rmFields[1] = findViewById(R.id._2RM_weight);
@@ -109,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateRMs() {
         for(int i=0; i<8; i++){
-            double brz = currWeightValue*(36/(37-(double)currRepValue));
+            double brz = repMaxWeightValue*(36/(37-(double)currRepValue));
             double rmMax = Math.floor((brz*(36-i))/36);
             rmFields[i].setText(String.valueOf(rmMax));
         }
@@ -117,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveValueToSharedPrefs(){
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(CURR_VALUE_KEY, currWeightValue);
+        editor.putInt(CURR_VALUE_KEY, repMaxWeightValue);
         editor.apply();
     }
 }

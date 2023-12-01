@@ -15,4 +15,6 @@
     <string name="_7rm">7RM</string>
     <string name="_8rm">8RM</string>
     <string name="estimated_rep_maxes">Estimated Rep Maxes</string>
+    <string name="percentages">Percentages</string>
+    <string name="weight">Weight</string>
 </resources>
