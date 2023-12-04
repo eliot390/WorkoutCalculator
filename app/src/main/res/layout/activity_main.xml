@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_gray"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/weightLiftedText"
@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="@string/weight_lifted"
-        android:textSize="40sp"
         android:textAlignment="center"
         android:textColor="@color/soft_white"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/editWeightNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -52,7 +52,6 @@
         android:layout_width="109dp"
         android:layout_height="65dp"
         android:ems="10"
-        android:hint="@string/_100"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -64,7 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.201" />
-
 
 
     <TextView
@@ -113,7 +111,6 @@
         android:layout_width="109dp"
         android:layout_height="65dp"
         android:ems="10"
-        android:hint="@string/_1"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -124,7 +121,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.408" />
-
 
 
     <TextView
@@ -202,7 +198,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
-        android:hint="300 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -217,7 +212,6 @@
         android:id="@+id/_1RM_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="100 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -233,7 +227,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
-        android:hint="400 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -249,7 +242,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
-        android:hint="200 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -278,7 +270,6 @@
         android:id="@+id/_5RM_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="500 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -308,7 +299,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
-        android:hint="600 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -338,7 +328,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
-        android:hint="700 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -368,7 +357,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
-        android:hint="800 lbs"
         android:textColor="@color/white"
         android:textColorHint="@color/soft_white"
         android:textSize="30sp"
@@ -378,18 +366,6 @@
         app:layout_constraintStart_toEndOf="@id/_8RM"
         app:layout_constraintTop_toBottomOf="@+id/_7RM_weight"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/percentSign"
-        android:layout_width="65dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951"
-        app:srcCompat="@drawable/baseline_percent_24" />
 
     <ImageView
         android:id="@+id/barbell"
@@ -402,5 +378,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975"
         app:srcCompat="@drawable/barbell_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/percentSign"
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.951"
+        app:srcCompat="@drawable/baseline_percent_24" />
+
+    <ImageView
+        android:id="@+id/stats"
+        android:layout_width="58dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94"
+        app:srcCompat="@drawable/bar_chart_graph_svgrepo_com" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,6 +39,12 @@ public class Percentage extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ImageView statsButton = findViewById(R.id.stats);
+        statsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Percentage.this, Stats.class);
+            startActivity(intent);
+        });
+
         ImageView minusButton = findViewById(R.id.button_weight_minus);
         minusButton.setOnClickListener(v -> {
             if (percentWeightValue>0){

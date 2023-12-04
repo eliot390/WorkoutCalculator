@@ -37,32 +37,17 @@ public class MainActivity extends AppCompatActivity {
         editRepNumber = findViewById(R.id.editRepsNumber);
         editRepNumber.setText(String.valueOf(currRepValue));
 
-//        Button plusButtonWeight = findViewById(R.id.button_weight_plus);
-//        Button minusButtonWeight = findViewById(R.id.button_weight_minus);
-//        Button plusButtonReps = findViewById(R.id.button_reps_plus);
-//        Button minusButtonReps = findViewById(R.id.button_reps_minus);
-
         ImageView percentButton = findViewById(R.id.percentSign);
         percentButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Percentage.class);
             startActivity(intent);
         });
 
-//        plusButtonWeight.setOnClickListener(v -> {
-//            repMaxWeightValue+=5;
-//            editWeightNumber.setText(String.valueOf(repMaxWeightValue));
-//            updateRMs();
-//            saveValueToSharedPrefs();
-//        });
-//
-//        minusButtonWeight.setOnClickListener(v -> {
-//            if (repMaxWeightValue>0){
-//                repMaxWeightValue-=5;
-//                editWeightNumber.setText(String.valueOf(repMaxWeightValue));
-//                updateRMs();
-//                saveValueToSharedPrefs();
-//            }
-//        });
+        ImageView statsButton = findViewById(R.id.stats);
+        statsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Stats.class);
+            startActivity(intent);
+        });
 
         ImageView minusButtonWeight = findViewById(R.id.button_weight_minus);
         minusButtonWeight.setOnClickListener(v -> {
@@ -122,20 +107,6 @@ public class MainActivity extends AppCompatActivity {
             editRepNumber.setText(String.valueOf(currRepValue));
             updateRMs();
         });
-
-//        plusButtonReps.setOnClickListener(v -> {
-//            currRepValue++;
-//            editRepNumber.setText(String.valueOf(currRepValue));
-//            updateRMs();
-//        });
-//
-//        minusButtonReps.setOnClickListener(v -> {
-//            if (currRepValue>1){
-//                currRepValue--;
-//                editRepNumber.setText(String.valueOf(currRepValue));
-//                updateRMs();
-//            }
-//        });
         
         rmFields[0] = findViewById(R.id._1RM_weight);
         rmFields[1] = findViewById(R.id._2RM_weight);
