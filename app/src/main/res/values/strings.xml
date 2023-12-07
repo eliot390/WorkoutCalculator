@@ -25,4 +25,11 @@
     <string name="_60P">60%</string>
     <string name="_55P">55%</string>
     <string name="_50P">50%</string>
+
+    <string name="_45_lbs">45 lbs</string>
+    <string name="_35_lbs">35 lbs</string>
+    <string name="barbell_weight">Barbell Weight</string>
+    <string name="calculate">Calculate</string>
+    <string name="plates_needed">Plates Needed</string>
+    <string name="lbs">lbs</string>
 </resources>
