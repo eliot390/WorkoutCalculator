@@ -5,6 +5,9 @@
     <string name="estimated_rep_maxes">Estimated Rep Maxes</string>
     <string name="percentages">Percentages</string>
     <string name="weight">Weight</string>
+    <string name="barbell_weight">Barbell Weight</string>
+    <string name="calculate">Calculate</string>
+    <string name="plates_needed">Plates Needed</string>
 
     <string name="_1rm">1RM</string>
     <string name="_2rm">2RM</string>
@@ -14,6 +17,8 @@
     <string name="_6rm">6RM</string>
     <string name="_7rm">7RM</string>
     <string name="_8rm">8RM</string>
+    <string name="_9rm">9RM</string>
+    <string name="_10rm">10RM</string>
 
     <string name="_95P">95%</string>
     <string name="_90P">90%</string>
@@ -26,10 +31,15 @@
     <string name="_55P">55%</string>
     <string name="_50P">50%</string>
 
-    <string name="_45_lbs">45 lbs</string>
-    <string name="_35_lbs">35 lbs</string>
-    <string name="barbell_weight">Barbell Weight</string>
-    <string name="calculate">Calculate</string>
-    <string name="plates_needed">Plates Needed</string>
-    <string name="lbs">lbs</string>
+    <string name="_45lbs">45 lbs</string>
+    <string name="_35lbs">35 lbs</string>
+    <string name="_45_lbs">45 lbs:</string>
+    <string name="_35_lbs">35 lbs:</string>
+    <string name="_25_lbs">25 lbs:</string>
+    <string name="_15_lbs">15 lbs:</string>
+    <string name="_10_lbs">10 lbs:</string>
+    <string name="_5_lbs">5 lbs:</string>
+    <string name="_half_lbs">2.5 lbs:</string>
+    <string name="_1_lb">1 lb:</string>
+
 </resources>

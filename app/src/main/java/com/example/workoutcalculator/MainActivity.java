@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,28 +13,26 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editWeightNumber;
+    private EditText editRepNumber;
+    private int repMaxWeightValue = 0;
+    private int currRepValue = 1;
+    private final TextView[] rmFields = new TextView[10];
 
     private SharedPreferences sharedPreferences;
     private static final String CURR_VALUE_KEY = "repMaxWeightValue";
-
-    private int repMaxWeightValue = 0;
-    private EditText editRepNumber;
-    private int currRepValue = 1;
-
-    private final TextView[] rmFields = new TextView[8];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        repMaxWeightValue = sharedPreferences.getInt(CURR_VALUE_KEY, 0);
-
         editWeightNumber = findViewById(R.id.editWeightNumber);
         editWeightNumber.setText(String.valueOf(repMaxWeightValue));
         editRepNumber = findViewById(R.id.editRepsNumber);
         editRepNumber.setText(String.valueOf(currRepValue));
+
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        repMaxWeightValue = sharedPreferences.getInt(CURR_VALUE_KEY, 0);
 
         ImageView percentButton = findViewById(R.id.percentSign);
         percentButton.setOnClickListener(v -> {
@@ -43,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ImageView statsButton = findViewById(R.id.stats);
-        statsButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Stats.class);
+        ImageView platesButton = findViewById(R.id.plates);
+        platesButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PlateCount.class);
             startActivity(intent);
         });
 
@@ -116,12 +113,14 @@ public class MainActivity extends AppCompatActivity {
         rmFields[5] = findViewById(R.id._6RM_weight);
         rmFields[6] = findViewById(R.id._7RM_weight);
         rmFields[7] = findViewById(R.id._8RM_weight);
+        rmFields[8] = findViewById(R.id._9RM_weight);
+        rmFields[9] = findViewById(R.id._10RM_weight);
         
         updateRMs();
     }
 
     private void updateRMs() {
-        for(int i=0; i<8; i++){
+        for(int i=0; i<10; i++){
             double brz = repMaxWeightValue*(36/(37-(double)currRepValue));
             double rmMax = Math.floor((brz*(36-i))/36);
             rmFields[i].setText(String.valueOf(rmMax));

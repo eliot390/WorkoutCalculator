@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,24 +13,22 @@ import android.widget.TextView;
 public class Percentage extends AppCompatActivity {
 
     private EditText editWeightNumber;
+    private int percentWeightValue = 0;
+    private final TextView[] percentFields = new TextView[10];
 
     private SharedPreferences sharedPreferences;
     private static final String CURR_VALUE_KEY = "percentWeightValue";
-
-    private int percentWeightValue = 0;
-
-    private final TextView[] percentFields = new TextView[8];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_percentage);
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        percentWeightValue = sharedPreferences.getInt(CURR_VALUE_KEY, 0);
-
         editWeightNumber = findViewById(R.id.editWeightNumber);
         editWeightNumber.setText(String.valueOf(percentWeightValue));
+
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        percentWeightValue = sharedPreferences.getInt(CURR_VALUE_KEY, 0);
 
         ImageView barbellButton = findViewById(R.id.barbell);
         barbellButton.setOnClickListener(v -> {
@@ -39,9 +36,9 @@ public class Percentage extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ImageView statsButton = findViewById(R.id.stats);
-        statsButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Percentage.this, Stats.class);
+        ImageView platesButton = findViewById(R.id.plates);
+        platesButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Percentage.this, PlateCount.class);
             startActivity(intent);
         });
 
@@ -96,6 +93,8 @@ public class Percentage extends AppCompatActivity {
         percentFields[5] = findViewById(R.id._70P_weight);
         percentFields[6] = findViewById(R.id._65P_weight);
         percentFields[7] = findViewById(R.id._60P_weight);
+        percentFields[8] = findViewById(R.id._55P_weight);
+        percentFields[9] = findViewById(R.id._50P_weight);
 
         updatePercent();
     }
@@ -104,7 +103,7 @@ public class Percentage extends AppCompatActivity {
         double num = percentWeightValue;
         double percent = 95;
 
-        for(int i=0; i<8; i++){
+        for(int i=0; i<10; i++){
             double result = Math.floor((percent/100)*num);
             percentFields[i].setText(String.valueOf(result));
             percent-=5;

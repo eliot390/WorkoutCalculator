@@ -5,38 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_gray"
-    tools:context=".Percentage">
+    tools:context=".PlateCount">
 
     <TextView
-        android:id="@+id/weightText"
+        android:id="@+id/barbell_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="@string/weight"
+        android:text="@string/barbell_weight"
         android:textSize="40sp"
         android:textAlignment="center"
         android:textColor="@color/soft_white"
-        app:layout_constraintBottom_toTopOf="@+id/editWeightNumber"
+        app:layout_constraintBottom_toTopOf="@+id/totalWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/button_weight_minus"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207"
-        app:srcCompat="@drawable/minus_circle_svgrepo_com" />
-
     <EditText
-        android:id="@+id/editWeightNumber"
+        android:id="@+id/totalWeight"
         android:layout_width="109dp"
         android:layout_height="65dp"
         android:ems="10"
@@ -51,233 +39,244 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.201" />
 
-    <ImageView
-        android:id="@+id/button_weight_plus"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207"
-        app:srcCompat="@drawable/minus_plus_svgrepo_com" />
-
-    <TextView
-        android:id="@+id/percentages"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/percentages"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3">
+
+        <RadioButton
+            android:id="@+id/radio35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_35lbs"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radio45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_45lbs"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.418" />
+
+    <TextView
+        android:id="@+id/platesNeeded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plates_needed"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintVertical_bias="0.584" />
 
     <TextView
-        android:id="@+id/_95P"
+        android:id="@+id/_35plates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_95P"
+        android:text="@string/_35_lbs"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/_45plates"
+        app:layout_constraintVertical_bias="0.004" />
+
+    <TextView
+        android:id="@+id/_15plates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_15_lbs"
+        android:textColor="@color/light_blue"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/_25plates"
+        app:layout_constraintVertical_bias="0.016" />
+
+    <TextView
+        android:id="@+id/_25PlateCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_10rm"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toEndOf="@id/_25plates"
+        app:layout_constraintTop_toBottomOf="@id/_35PlateCount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/_15PlateCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_10rm"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toEndOf="@id/_15plates"
+        app:layout_constraintTop_toBottomOf="@id/_25PlateCount"
+        app:layout_constraintVertical_bias="0.016" />
+
+    <TextView
+        android:id="@+id/_45PlateCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_10rm"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toEndOf="@id/_45plates"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
+
+    <TextView
+        android:id="@+id/_25plates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_25_lbs"
+        android:textColor="@color/light_blue"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/_35plates"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/_45plates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_45_lbs"
+        android:textColor="@color/light_blue"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.645" />
 
     <TextView
-        android:id="@+id/_90P"
+        android:id="@+id/_35PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_90P"
+        android:text="@string/_10rm"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toEndOf="@id/_35plates"
+        app:layout_constraintTop_toBottomOf="@id/_45PlateCount"
+        app:layout_constraintVertical_bias="0.004" />
+
+    <TextView
+        android:id="@+id/_10plates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_10_lbs"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_95P"
-        app:layout_constraintVertical_bias="0.025" />
-
-    <TextView
-        android:id="@+id/_85P"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_85P"
-        android:textColor="@color/light_blue"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_90P"
-        app:layout_constraintVertical_bias="0.03" />
-
-    <TextView
-        android:id="@+id/_80P"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_80P"
-        android:textColor="@color/light_blue"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_85P"
-        app:layout_constraintVertical_bias="0.033" />
-
-    <TextView
-        android:id="@+id/_75P"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_75P"
-        android:textColor="@color/light_blue"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_80P"
-        app:layout_constraintVertical_bias="0.033" />
-
-    <TextView
-        android:id="@+id/_70P"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_70P"
-        android:textColor="@color/light_blue"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.646" />
 
     <TextView
-        android:id="@+id/_65P"
+        android:id="@+id/_5plates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_65P"
+        android:text="@string/_5_lbs"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.677"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_70P"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintTop_toBottomOf="@id/_10plates"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/_60P"
+        android:id="@+id/_halfPlates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_60P"
+        android:text="@string/_half_lbs"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.658"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_65P"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintTop_toBottomOf="@id/_5plates"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/_55P"
+        android:id="@+id/_1Plates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="55%"
+        android:text="@string/_1_lb"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_60P"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintTop_toBottomOf="@id/_halfPlates"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/_50P"
+        android:id="@+id/_10PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="50%"
-        android:textColor="@color/light_blue"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_55P"
-        app:layout_constraintVertical_bias="0.036" />
-
-    <TextView
-        android:id="@+id/_95P_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
+        android:text="@string/_10rm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintStart_toEndOf="@id/_95P"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toEndOf="@id/_10plates"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.646" />
 
     <TextView
-        android:id="@+id/_90P_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
-        android:text="@string/_10rm"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintStart_toEndOf="@id/_90P"
-        app:layout_constraintTop_toBottomOf="@+id/_95P_weight"
-        app:layout_constraintVertical_bias="0.065" />
-
-    <TextView
-        android:id="@+id/_85P_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="144dp"
-        android:text="@string/_10rm"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toEndOf="@id/_85P"
-        app:layout_constraintTop_toBottomOf="@+id/_90P_weight"
-        app:layout_constraintVertical_bias="0.07" />
-
-    <TextView
-        android:id="@+id/_80P_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:text="@string/_10rm"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
-        app:layout_constraintStart_toEndOf="@id/_80P"
-        app:layout_constraintTop_toBottomOf="@+id/_85P_weight"
-        app:layout_constraintVertical_bias="0.043" />
-
-    <TextView
-        android:id="@+id/_75P_weight"
+        android:id="@+id/_5PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_10rm"
@@ -285,84 +284,38 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toEndOf="@id/_75P"
-        app:layout_constraintTop_toBottomOf="@+id/_80P_weight"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toEndOf="@id/_5plates"
+        app:layout_constraintTop_toBottomOf="@id/_10PlateCount"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/_70P_weight"
+        android:id="@+id/_halfPlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
+        android:text="@string/_10rm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toEndOf="@id/_70P"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toEndOf="@id/_halfPlates"
+        app:layout_constraintTop_toBottomOf="@id/_5PlateCount"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/_65P_weight"
+        android:id="@+id/_1PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="144dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toEndOf="@id/_65P"
-        app:layout_constraintTop_toBottomOf="@+id/_70P_weight"
-        app:layout_constraintVertical_bias="0.049" />
-
-    <TextView
-        android:id="@+id/_60P_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
         android:text="@string/_10rm"
-        android:textColor="@color/white"
-        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toEndOf="@id/_60P"
-        app:layout_constraintTop_toBottomOf="@+id/_65P_weight"
-        app:layout_constraintVertical_bias="0.048" />
-
-    <TextView
-        android:id="@+id/_55P_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:text="@string/_10rm"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toEndOf="@id/_55P"
-        app:layout_constraintTop_toBottomOf="@+id/_60P_weight"
-        app:layout_constraintVertical_bias="0.043" />
-
-    <TextView
-        android:id="@+id/_50P_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:text="@string/_10rm"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toEndOf="@id/_50P"
-        app:layout_constraintTop_toBottomOf="@+id/_55P_weight"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toEndOf="@id/_1Plates"
+        app:layout_constraintTop_toBottomOf="@id/_halfPlateCount"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/barbell"
