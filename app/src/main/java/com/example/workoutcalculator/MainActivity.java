@@ -1,7 +1,6 @@
 package com.example.workoutcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +8,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             editRepNumber.setText(String.valueOf(currRepValue));
             updateRMs();
         });
-        
+
         rmFields[0] = findViewById(R.id._1RM_weight);
         rmFields[1] = findViewById(R.id._2RM_weight);
         rmFields[2] = findViewById(R.id._3RM_weight);
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         rmFields[7] = findViewById(R.id._8RM_weight);
         rmFields[8] = findViewById(R.id._9RM_weight);
         rmFields[9] = findViewById(R.id._10RM_weight);
-        
+
         updateRMs();
     }
 
