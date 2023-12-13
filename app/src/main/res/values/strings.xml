@@ -8,6 +8,8 @@
     <string name="barbell_weight">Barbell Weight</string>
     <string name="calculate">Calculate</string>
     <string name="plates_needed">Plates Needed</string>
+    <string name="max_reps">Max Reps</string>
+    <string name="plate_count">Plate Count</string>
 
     <string name="_1rm">1RM</string>
     <string name="_2rm">2RM</string>
