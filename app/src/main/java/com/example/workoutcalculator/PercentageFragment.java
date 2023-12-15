@@ -1,48 +1,67 @@
 package com.example.workoutcalculator;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Percentage extends AppCompatActivity {
+public class PercentageFragment extends Fragment {
 
     private EditText editWeightNumber;
     private int percentWeightValue = 0;
+    private int currWeightValue = 1;
     private final TextView[] percentFields = new TextView[10];
 
     private SharedPreferences sharedPreferences;
-    private static final String CURR_VALUE_KEY = "percentWeightValue";
+    private static final String CURR_KEY_VALUE = "percentWeightValue";
+
+    private static final String ARG_PARAM1 = "percentParam1";
+    private static final String ARG_PARAM2 = "percentParam2";
+
+    public PercentageFragment(){}
+
+    @NonNull
+    public static PercentageFragment newInstance(String param1, String param2) {
+        PercentageFragment fragment = new PercentageFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_percentage);
+        if (getArguments() != null) {
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
 
-        editWeightNumber = findViewById(R.id.editWeightNumber);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_percentage, container, false);
+
+        editWeightNumber = view.findViewById(R.id.editWeightNumber);
         editWeightNumber.setText(String.valueOf(percentWeightValue));
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        percentWeightValue = sharedPreferences.getInt(CURR_VALUE_KEY, 0);
+        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        percentWeightValue = sharedPreferences.getInt(CURR_KEY_VALUE, 0);
+        currWeightValue = sharedPreferences.getInt("secondary_key", 1);
 
-        ImageView barbellButton = findViewById(R.id.barbell);
-        barbellButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Percentage.this, MainActivity.class);
-            startActivity(intent);
-        });
+        ImageView minusButton = view.findViewById(R.id.button_weight_minus);
+        ImageView plusButton = view.findViewById(R.id.button_weight_plus);
 
-        ImageView platesButton = findViewById(R.id.plates);
-        platesButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Percentage.this, PlateCount.class);
-            startActivity(intent);
-        });
-
-        ImageView minusButton = findViewById(R.id.button_weight_minus);
         minusButton.setOnClickListener(v -> {
             if (percentWeightValue>0){
                 percentWeightValue-=5;
@@ -52,7 +71,7 @@ public class Percentage extends AppCompatActivity {
             }
         });
 
-        ImageView plusButton = findViewById(R.id.button_weight_plus);
+
         plusButton.setOnClickListener(v -> {
             percentWeightValue+=5;
             editWeightNumber.setText(String.valueOf(percentWeightValue));
@@ -85,18 +104,20 @@ public class Percentage extends AppCompatActivity {
             return false;
         });
 
-        percentFields[0] = findViewById(R.id._95P_weight);
-        percentFields[1] = findViewById(R.id._90P_weight);
-        percentFields[2] = findViewById(R.id._85P_weight);
-        percentFields[3] = findViewById(R.id._80P_weight);
-        percentFields[4] = findViewById(R.id._75P_weight);
-        percentFields[5] = findViewById(R.id._70P_weight);
-        percentFields[6] = findViewById(R.id._65P_weight);
-        percentFields[7] = findViewById(R.id._60P_weight);
-        percentFields[8] = findViewById(R.id._55P_weight);
-        percentFields[9] = findViewById(R.id._50P_weight);
+        percentFields[0] = view.findViewById(R.id._95P_weight);
+        percentFields[1] = view.findViewById(R.id._90P_weight);
+        percentFields[2] = view.findViewById(R.id._85P_weight);
+        percentFields[3] = view.findViewById(R.id._80P_weight);
+        percentFields[4] = view.findViewById(R.id._75P_weight);
+        percentFields[5] = view.findViewById(R.id._70P_weight);
+        percentFields[6] = view.findViewById(R.id._65P_weight);
+        percentFields[7] = view.findViewById(R.id._60P_weight);
+        percentFields[8] = view.findViewById(R.id._55P_weight);
+        percentFields[9] = view.findViewById(R.id._50P_weight);
 
         updatePercent();
+
+        return view;
     }
 
     private void updatePercent() {
@@ -112,7 +133,8 @@ public class Percentage extends AppCompatActivity {
 
     private void saveValueToSharedPrefs(){
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(CURR_VALUE_KEY, percentWeightValue);
+        editor.putInt(CURR_KEY_VALUE, percentWeightValue);
+        editor.putInt("secondary_key", currWeightValue);
         editor.apply();
     }
 }

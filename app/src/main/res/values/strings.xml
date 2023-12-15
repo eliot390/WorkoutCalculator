@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Workout Calculator</string>
-    <string name="weight_lifted">Weight Lifted</string>
-    <string name="reps_performed">Reps Performed</string>
-    <string name="estimated_rep_maxes">Estimated Rep Maxes</string>
-    <string name="percentages">Percentages</string>
-    <string name="weight">Weight</string>
     <string name="barbell_weight">Barbell Weight</string>
     <string name="calculate">Calculate</string>
-    <string name="plates_needed">Plates Needed</string>
+    <string name="estimated_rep_maxes">Estimated Rep Maxes</string>
     <string name="max_reps">Max Reps</string>
+    <string name="percentages">Percentages</string>
     <string name="plate_count">Plate Count</string>
+    <string name="plates_needed">Plates Needed</string>
+    <string name="reps_performed">Reps Performed</string>
+    <string name="weight_lifted">Weight Lifted</string>
+    <string name="weight">Weight</string>
 
     <string name="_1rm">1RM</string>
     <string name="_2rm">2RM</string>
@@ -43,5 +43,7 @@
     <string name="_5_lbs">5 lbs:</string>
     <string name="_half_lbs">2.5 lbs:</string>
     <string name="_1_lb">1 lb:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

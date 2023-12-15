@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray"
-    tools:context=".Percentage">
+    tools:context=".PercentageFragment">
 
     <TextView
         android:id="@+id/weightText"
@@ -64,7 +63,7 @@
         app:srcCompat="@drawable/minus_plus_svgrepo_com" />
 
     <TextView
-        android:id="@+id/percentages"
+        android:id="@+id/percentagesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/percentages"
@@ -193,7 +192,7 @@
         android:id="@+id/_55P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="55%"
+        android:text="@string/_55P"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -207,7 +206,7 @@
         android:id="@+id/_50P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="50%"
+        android:text="@string/_50P"
         android:textColor="@color/light_blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -221,7 +220,6 @@
         android:id="@+id/_95P_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -236,7 +234,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -251,7 +248,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -266,7 +262,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -280,7 +275,6 @@
         android:id="@+id/_75P_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -294,7 +288,6 @@
         android:id="@+id/_70P_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -309,7 +302,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -324,7 +316,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -339,7 +330,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -354,7 +344,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -363,41 +352,5 @@
         app:layout_constraintStart_toEndOf="@id/_50P"
         app:layout_constraintTop_toBottomOf="@+id/_55P_weight"
         app:layout_constraintVertical_bias="0.065" />
-
-    <ImageView
-        android:id="@+id/barbell"
-        android:layout_width="95dp"
-        android:layout_height="85dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
-        app:srcCompat="@drawable/barbell_svgrepo_com" />
-
-    <ImageView
-        android:id="@+id/percentSign"
-        android:layout_width="65dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951"
-        app:srcCompat="@drawable/baseline_percent_24" />
-
-    <ImageView
-        android:id="@+id/plates"
-        android:layout_width="58dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94"
-        app:srcCompat="@drawable/bar_chart_graph_svgrepo_com" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

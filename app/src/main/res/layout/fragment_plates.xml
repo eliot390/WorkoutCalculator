@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray"
-    tools:context=".PlateCount">
+    tools:context=".PlatesFragment">
 
     <TextView
         android:id="@+id/barbell_weight"
@@ -125,7 +124,6 @@
         android:id="@+id/_25PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,7 +137,6 @@
         android:id="@+id/_15PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -153,7 +150,6 @@
         android:id="@+id/_45PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -195,7 +191,6 @@
         android:id="@+id/_35PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -267,7 +262,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:text="@string/_10rm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
@@ -279,7 +273,6 @@
         android:id="@+id/_5PlateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_10rm"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -295,7 +288,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:text="@string/_10rm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.148"
@@ -309,48 +301,11 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:text="@string/_10rm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toEndOf="@id/_1Plates"
         app:layout_constraintTop_toBottomOf="@id/_halfPlateCount"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/barbell"
-        android:layout_width="95dp"
-        android:layout_height="85dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
-        app:srcCompat="@drawable/barbell_svgrepo_com" />
-
-    <ImageView
-        android:id="@+id/percentSign"
-        android:layout_width="65dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951"
-        app:srcCompat="@drawable/baseline_percent_24" />
-
-    <ImageView
-        android:id="@+id/plates"
-        android:layout_width="58dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94"
-        app:srcCompat="@drawable/bar_chart_graph_svgrepo_com" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
