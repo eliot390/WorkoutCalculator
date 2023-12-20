@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_max_rep" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -37,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/max_reps"
-            android:textSize="20sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             style="?android:attr/buttonBarButtonStyle" />
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/percentages"
-            android:textSize="20sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             style="?android:attr/buttonBarButtonStyle" />
@@ -59,7 +60,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/plate_count"
-            android:textSize="20sp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/statsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="stats"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             style="?android:attr/buttonBarButtonStyle" />
