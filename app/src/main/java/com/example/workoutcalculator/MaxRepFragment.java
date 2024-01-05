@@ -2,31 +2,18 @@ package com.example.workoutcalculator;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupMenu;
-import android.widget.PopupWindow;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 public class MaxRepFragment extends Fragment {
 
@@ -35,7 +22,6 @@ public class MaxRepFragment extends Fragment {
     private int repMaxWeightValue = 0;
     private int currRepValue = 1;
     private final TextView[] rmFields = new TextView[10];
-
     private SharedPreferences sharedPreferences;
     private static final String CURR_KEY_VALUE = "repMaxWeightValue";
 
@@ -151,55 +137,7 @@ public class MaxRepFragment extends Fragment {
         rmFields[8] = view.findViewById(R.id._9RM_weight);
         rmFields[9] = view.findViewById(R.id._10RM_weight);
 
-//        addStats.setOnClickListener(this::showPopupMenu);
-        addStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                builder.setTitle("Save to log?");
-
-                LinearLayout layout = new LinearLayout(requireContext());
-                layout.setOrientation(LinearLayout.VERTICAL);
-
-                TextView textView = new TextView(requireContext());
-                textView.setText("1 Rep Max: " + repMaxWeightValue);
-                layout.addView(textView);
-
-                Spinner spinner = new Spinner(requireContext());
-
-                layout.addView(spinner);
-                builder.setView(layout);
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
-
         return view;
-    }
-
-//    private void showPopupMenu(View v) {
-//        PopupMenu popupMenu = new PopupMenu(requireContext(), v, Gravity.END, 0, R.style.CustomPopupMenuStyle);
-//        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
-//        popupMenu.setOnMenuItemClickListener(item -> {
-//            switch (item.getItemId()){
-//                case R.id.maxRepPop:
-//                    showToast("Option 1");
-//                    return true;
-//                case R.id.percentagePop:
-//                    showToast("Option 2");
-//                    return true;
-//                default:
-//                    return false;
-//            }
-//
-//        });
-//
-//        popupMenu.show();
-//    }
-
-    private void showToast(String s){
-        Toast.makeText(requireContext(), s, Toast.LENGTH_SHORT).show();
     }
 
     private void updateRMs() {
