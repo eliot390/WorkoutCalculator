@@ -3,6 +3,7 @@
     <string name="barbell_weight">Barbell Weight</string>
     <string name="calculate">Calculate</string>
     <string name="estimated_rep_maxes">Estimated Rep Maxes</string>
+    <string name="lbs">lbs</string>
     <string name="max_reps">Max Reps</string>
     <string name="percentages">Percentages</string>
     <string name="plate_count">Plate Count</string>

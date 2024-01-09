@@ -1,8 +1,9 @@
 package com.example.workoutcalculator;
 
 import static android.content.Context.MODE_PRIVATE;
-
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +12,14 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MaxRepFragment extends Fragment {
 
@@ -24,6 +30,9 @@ public class MaxRepFragment extends Fragment {
     private final TextView[] rmFields = new TextView[10];
     private SharedPreferences sharedPreferences;
     private static final String CURR_KEY_VALUE = "repMaxWeightValue";
+
+    private SQLiteDatabase db;
+    private EditText editMovement;
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "maxRepParam1";
@@ -57,6 +66,7 @@ public class MaxRepFragment extends Fragment {
 
         editWeightNumber = view.findViewById(R.id.editWeightNumber);
         editRepNumber = view.findViewById(R.id.editRepsNumber);
+        editMovement = view.findViewById(R.id.editMovement);
 
         sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
         repMaxWeightValue = sharedPreferences.getInt(CURR_KEY_VALUE, 0);
@@ -137,7 +147,30 @@ public class MaxRepFragment extends Fragment {
         rmFields[8] = view.findViewById(R.id._9RM_weight);
         rmFields[9] = view.findViewById(R.id._10RM_weight);
 
+        addStats.setOnClickListener(view1 -> {
+            String currentDate = currentDate();
+            WorkoutData data = null;
+            try {
+                data = new WorkoutData(0, editMovement.getText().toString(), editWeightNumber.getText().toString(), currentDate);
+                Toast.makeText(requireContext(), data.toString(), Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(requireContext(), "Error creating entry", Toast.LENGTH_SHORT).show();
+            }
+            WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getContext());
+            assert data != null;
+            dbHelper.addData(data);
+        });
+
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Close the database connection when the fragment is destroyed
+        if (db != null) {
+            db.close();
+        }
     }
 
     private void updateRMs() {
@@ -153,6 +186,11 @@ public class MaxRepFragment extends Fragment {
         editor.putInt(CURR_KEY_VALUE, repMaxWeightValue);
         editor.putInt("secondary_key", currRepValue);
         editor.apply();
+    }
+
+    private String currentDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
+        return sdf.format(new Date());
     }
 
     @Override
