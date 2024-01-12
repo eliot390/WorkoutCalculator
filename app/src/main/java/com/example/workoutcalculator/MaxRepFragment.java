@@ -1,7 +1,6 @@
 package com.example.workoutcalculator;
 
 import static android.content.Context.MODE_PRIVATE;
-import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -149,16 +148,24 @@ public class MaxRepFragment extends Fragment {
 
         addStats.setOnClickListener(view1 -> {
             String currentDate = currentDate();
-            WorkoutData data = null;
-            try {
-                data = new WorkoutData(0, editMovement.getText().toString(), editWeightNumber.getText().toString(), currentDate);
-                Toast.makeText(requireContext(), data.toString(), Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                Toast.makeText(requireContext(), "Error creating entry", Toast.LENGTH_SHORT).show();
+            String movementText = editMovement.getText().toString().trim();
+
+            if(movementText.isEmpty()){
+                Toast.makeText(requireContext(), "Please enter a movement", Toast.LENGTH_SHORT).show();
+            }else{
+                WorkoutData data = null;
+                try {
+                    data = new WorkoutData(0, editMovement.getText().toString(), editWeightNumber.getText().toString(), currentDate);
+                    Toast.makeText(requireContext(), "Entry successful", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(requireContext(), "Error creating entry", Toast.LENGTH_SHORT).show();
+                }
+                try(WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getContext())){
+                    assert data != null;
+                    dbHelper.addData(data);
+                };
+
             }
-            WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getContext());
-            assert data != null;
-            dbHelper.addData(data);
         });
 
         return view;

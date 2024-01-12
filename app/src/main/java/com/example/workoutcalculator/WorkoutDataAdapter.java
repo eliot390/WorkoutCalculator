@@ -1,6 +1,5 @@
 package com.example.workoutcalculator;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,24 +43,23 @@ public class WorkoutDataAdapter extends RecyclerView.Adapter<WorkoutDataAdapter.
 
     public static class WorkoutViewHolder extends RecyclerView.ViewHolder {
         public TextView movementTextView;
-        public TextView weightTextView;
-        public TextView dateAddedTextView;
+        public TextView weightDateTextView;
         public ImageView deleteBtn;
 
         public WorkoutViewHolder(View view) {
             super(view);
             movementTextView = view.findViewById(R.id.movementTextView);
-            weightTextView = view.findViewById(R.id.weightTextView);
-            dateAddedTextView = view.findViewById(R.id.dateAddedTextView);
+            weightDateTextView = view.findViewById(R.id.weightDateTextView);
             deleteBtn = view.findViewById(R.id.deleteBtn);
         }
 
         public void bind(WorkoutData workoutData){
-            String weightUnit = workoutData.getWeight() + " " + itemView.getContext().getString(R.string.lbs);
-            String dateAddedLine = workoutData.getDateAdded() + "\n";
+            String weightDate = workoutData.getWeight() + " " + itemView.getContext().getString(R.string.lbs)
+                    + " - " + workoutData.getDateAdded();
             movementTextView.setText(workoutData.getMovement());
-            weightTextView.setText(weightUnit);
-            dateAddedTextView.setText(dateAddedLine);
+            weightDateTextView.setText(weightDate);
+
+            
         }
     }
 }

@@ -48,10 +48,12 @@ public class StatsFragment extends Fragment {
         WorkoutDataAdapter workoutAdapter = new WorkoutDataAdapter();
         recyclerView.setAdapter(workoutAdapter);
 
-        WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getActivity());
+        try (WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getActivity())){
+            List<WorkoutData> workoutDataList = dbHelper.getData();
+            workoutAdapter.setWorkoutDataList(workoutDataList);
+        };
 
-        List<WorkoutData> workoutDataList = dbHelper.getData();
-        workoutAdapter.setWorkoutDataList(workoutDataList);
+
 
         return view;
     }

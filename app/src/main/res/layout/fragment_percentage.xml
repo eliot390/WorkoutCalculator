@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_95P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
@@ -96,13 +96,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_90P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_95P"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_85P"
@@ -110,13 +110,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_85P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_90P"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_80P"
@@ -124,13 +124,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_80P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_85P"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_75P"
@@ -138,13 +138,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_75P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_80P"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_70P"
@@ -152,7 +152,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_70P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.608"
@@ -166,13 +166,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_65P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_70P"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_60P"
@@ -180,13 +180,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_60P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_65P"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_55P"
@@ -194,13 +194,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_55P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_60P"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_50P"
@@ -208,23 +208,23 @@
         android:layout_height="wrap_content"
         android:text="@string/_50P"
         android:textColor="@color/light_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_55P"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_95P_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@id/_95P"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
@@ -235,13 +235,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@id/_90P"
         app:layout_constraintTop_toBottomOf="@+id/_95P_weight"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_85P_weight"
@@ -249,13 +249,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@id/_85P"
         app:layout_constraintTop_toBottomOf="@+id/_90P_weight"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_80P_weight"
@@ -263,36 +263,36 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@id/_80P"
         app:layout_constraintTop_toBottomOf="@+id/_85P_weight"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_75P_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@id/_75P"
         app:layout_constraintTop_toBottomOf="@+id/_80P_weight"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_70P_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@id/_70P"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
@@ -303,13 +303,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@id/_65P"
         app:layout_constraintTop_toBottomOf="@+id/_70P_weight"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_60P_weight"
@@ -317,13 +317,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@id/_60P"
         app:layout_constraintTop_toBottomOf="@+id/_65P_weight"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_55P_weight"
@@ -331,13 +331,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@id/_55P"
         app:layout_constraintTop_toBottomOf="@+id/_60P_weight"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_50P_weight"
@@ -345,12 +345,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@id/_50P"
         app:layout_constraintTop_toBottomOf="@+id/_55P_weight"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
