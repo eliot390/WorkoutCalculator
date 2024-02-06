@@ -53,13 +53,10 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_WORKOUT, null, values);
     }
 
-    public void deleteData(WorkoutData workoutData){
+    public void deleteData(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "DELETE FROM " + TABLE_WORKOUT + " WHERE " + COLUMN_ID + " = " + workoutData.getId();
-
-        Cursor cursor = db.rawQuery(query, null);
-
-        cursor.close();
+        db.delete(TABLE_WORKOUT, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(id)});
         db.close();
     }
 

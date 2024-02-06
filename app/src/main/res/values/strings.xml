@@ -44,5 +44,6 @@
     <string name="_5_lbs">5 lbs:</string>
     <string name="_half_lbs">2.5 lbs:</string>
     <string name="_1_lb">1 lb:</string>
+    <string name="no_data_saved">No data saved</string>
 
 </resources>

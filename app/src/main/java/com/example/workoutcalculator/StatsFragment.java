@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -44,16 +46,28 @@ public class StatsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        TextView noTextView = view.findViewById(R.id.noTextView);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         WorkoutDataAdapter workoutAdapter = new WorkoutDataAdapter();
+
         recyclerView.setAdapter(workoutAdapter);
 
         try (WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getActivity())){
             List<WorkoutData> workoutDataList = dbHelper.getData();
-            workoutAdapter.setWorkoutDataList(workoutDataList);
-        };
 
+            if(workoutDataList.isEmpty()){
+                recyclerView.setVisibility(View.GONE);
+                noTextView.setVisibility(View.VISIBLE);
+            }else{
+                recyclerView.setVisibility(View.VISIBLE);
+                noTextView.setVisibility(View.GONE);
+                workoutAdapter.setWorkoutDataList(workoutDataList);
+            }
+        }
 
+        recyclerView.setAdapter(workoutAdapter);
 
         return view;
     }
