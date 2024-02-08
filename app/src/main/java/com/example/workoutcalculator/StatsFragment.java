@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -48,10 +49,17 @@ public class StatsFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         TextView noTextView = view.findViewById(R.id.noTextView);
 
+        ImageView graphIcon = view.findViewById(R.id.graphIcon);
+        graphIcon.setOnClickListener(view1 -> {
+            GraphFragment graphFragment = new GraphFragment();
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentContainerView, graphFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         WorkoutDataAdapter workoutAdapter = new WorkoutDataAdapter();
-
         recyclerView.setAdapter(workoutAdapter);
 
         try (WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getActivity())){

@@ -420,6 +420,16 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:id="@+id/add_stat_background"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/round_button" />
+
+    <ImageView
         android:id="@+id/button_add_stat"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -427,13 +437,15 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/minus_plus_svgrepo_com" />
+        app:srcCompat="@drawable/save_svg" />
 
     <EditText
         android:id="@+id/editMovement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
+        android:hint="Enter Movement"
+        android:textColorHint="@color/soft_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

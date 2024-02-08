@@ -196,7 +196,7 @@ public class MaxRepFragment extends Fragment {
     }
 
     private String currentDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy", Locale.getDefault());
         return sdf.format(new Date());
     }
 

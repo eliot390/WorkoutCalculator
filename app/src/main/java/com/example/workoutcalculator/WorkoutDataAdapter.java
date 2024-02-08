@@ -80,8 +80,7 @@ public class WorkoutDataAdapter extends RecyclerView.Adapter<WorkoutDataAdapter.
         }
 
         public void bind(WorkoutData workoutData){
-            String weightDate = workoutData.getWeight() + " " + itemView.getContext().getString(R.string.lbs)
-                    + " - " + workoutData.getDateAdded();
+            String weightDate = workoutData.getDateAdded() + " - " + workoutData.getWeight() + " " + itemView.getContext().getString(R.string.lbs);
             movementTextView.setText(workoutData.getMovement());
             weightDateTextView.setText(weightDate);
         }
