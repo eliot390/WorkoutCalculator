@@ -1,5 +1,6 @@
 package com.example.workoutcalculator;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -84,4 +85,47 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
 
         return workoutList;
     }
+
+    public List<String> getDistinctMovements(){
+        List<String> movementNames = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(true, TABLE_WORKOUT, new String[]{COLUMN_MOVEMENT}, null, null, COLUMN_MOVEMENT, null, null, null);
+        if (cursor != null){
+            if (cursor.moveToFirst()){
+                do{
+                    String movementName = cursor.getString(0);
+                    movementNames.add(movementName);
+                }while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+        db.close();
+        return movementNames;
+    }
+
+    public List<WorkoutData> getDataByMovement(String movement){
+        List<WorkoutData> workoutDataList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selection = COLUMN_MOVEMENT + " = ?";
+        String[] selections = {movement};
+        Cursor cursor = db.query(TABLE_WORKOUT, null, selection, selections, null, null, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
+                @SuppressLint("Range") String movementValue = cursor.getString(cursor.getColumnIndex(COLUMN_MOVEMENT));
+                @SuppressLint("Range") String weight = cursor.getString(cursor.getColumnIndex(COLUMN_WEIGHT));
+                @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex(COLUMN_DATE_ADDED));
+
+                WorkoutData data = new WorkoutData(id, movementValue, weight, date);
+                workoutDataList.add(data);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return workoutDataList;
+    }
+
 }

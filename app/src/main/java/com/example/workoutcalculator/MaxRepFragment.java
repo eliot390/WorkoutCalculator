@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MaxRepFragment extends Fragment {
@@ -31,6 +35,9 @@ public class MaxRepFragment extends Fragment {
     private static final String CURR_KEY_VALUE = "repMaxWeightValue";
 
     private SQLiteDatabase db;
+    private WorkoutDatabaseHelper dbHelper;
+    private ArrayAdapter<String> spinnerAdapter;
+    private Spinner spinner;
     private EditText editMovement;
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -149,13 +156,22 @@ public class MaxRepFragment extends Fragment {
         addStats.setOnClickListener(view1 -> {
             String currentDate = currentDate();
             String movementText = editMovement.getText().toString().trim();
+            StringBuilder capitalizedMovement = new StringBuilder();
+            String[] words = movementText.split("\\s+");
+            for (String word : words){
+                if(!word.isEmpty()){
+                    capitalizedMovement.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1).toLowerCase()).append(" ");
+                }
+            }
+
+            String capitalizedString = capitalizedMovement.toString().trim();
 
             if(movementText.isEmpty()){
                 Toast.makeText(requireContext(), "Please enter a movement", Toast.LENGTH_SHORT).show();
             }else{
                 WorkoutData data = null;
                 try {
-                    data = new WorkoutData(0, editMovement.getText().toString(), editWeightNumber.getText().toString(), currentDate);
+                    data = new WorkoutData(0, capitalizedString , editWeightNumber.getText().toString(), currentDate);
                     Toast.makeText(requireContext(), "Entry successful", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Toast.makeText(requireContext(), "Error creating entry", Toast.LENGTH_SHORT).show();
@@ -168,7 +184,19 @@ public class MaxRepFragment extends Fragment {
             }
         });
 
+//        spinner = view.findViewById(R.id.menu_spinner);
+        dbHelper = new WorkoutDatabaseHelper(getActivity());
+//        populateMenu();
+
         return view;
+    }
+
+    private void populateMenu() {
+        List<String> movementNames = dbHelper.getDistinctMovements();
+        spinnerAdapter = new ArrayAdapter<>(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, movementNames);
+        spinnerAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+        movementNames.add(0, "Select Movement");
     }
 
     @Override
