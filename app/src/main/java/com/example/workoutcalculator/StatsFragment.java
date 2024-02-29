@@ -33,24 +33,24 @@ public class StatsFragment extends Fragment {
 
     public StatsFragment(){}
 
-    @NonNull
-    public static StatsFragment newInstance(String param1, String param2) {
-        StatsFragment fragment = new StatsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            String mParam1 = getArguments().getString(ARG_PARAM1);
-            String mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+//    @NonNull
+//    public static StatsFragment newInstance(String param1, String param2) {
+//        StatsFragment fragment = new StatsFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
+//
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        if (getArguments() != null) {
+//            String mParam1 = getArguments().getString(ARG_PARAM1);
+//            String mParam2 = getArguments().getString(ARG_PARAM2);
+//        }
+//    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,8 +70,14 @@ public class StatsFragment extends Fragment {
         graphIcon.setVisibility(View.GONE);
 
         graphIcon.setOnClickListener(view1 -> {
+            String selectedMovement = (String) spinner.getSelectedItem();
+
             GraphFragment graphFragment = new GraphFragment();
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            Bundle args = new Bundle();
+            args.putString("selectedMovement", selectedMovement);
+            graphFragment.setArguments(args);
+
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentContainerView, graphFragment);
             transaction.addToBackStack(null);
             transaction.commit();

@@ -28,34 +28,19 @@ public class MaxRepFragment extends Fragment {
 
     private EditText editWeightNumber;
     private EditText editRepNumber;
+    private EditText editMovement;
+    private final TextView[] rmFields = new TextView[10];
     private int repMaxWeightValue = 0;
     private int currRepValue = 1;
-    private final TextView[] rmFields = new TextView[10];
     private SharedPreferences sharedPreferences;
     private static final String CURR_KEY_VALUE = "repMaxWeightValue";
-
     private SQLiteDatabase db;
-    private WorkoutDatabaseHelper dbHelper;
-    private ArrayAdapter<String> spinnerAdapter;
-    private Spinner spinner;
-    private EditText editMovement;
 
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "maxRepParam1";
     private static final String ARG_PARAM2 = "maxRepParam2";
 
     // Required empty public constructor
     public MaxRepFragment(){}
-
-    @NonNull
-    public static MaxRepFragment newInstance(String param1, String param2) {
-        MaxRepFragment fragment = new MaxRepFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -184,25 +169,12 @@ public class MaxRepFragment extends Fragment {
             }
         });
 
-//        spinner = view.findViewById(R.id.menu_spinner);
-        dbHelper = new WorkoutDatabaseHelper(getActivity());
-//        populateMenu();
-
         return view;
-    }
-
-    private void populateMenu() {
-        List<String> movementNames = dbHelper.getDistinctMovements();
-        spinnerAdapter = new ArrayAdapter<>(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, movementNames);
-        spinnerAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        spinner.setAdapter(spinnerAdapter);
-        movementNames.add(0, "Select Movement");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        // Close the database connection when the fragment is destroyed
         if (db != null) {
             db.close();
         }

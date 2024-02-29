@@ -29,16 +29,6 @@ public class PercentageFragment extends Fragment {
 
     public PercentageFragment(){}
 
-    @NonNull
-    public static PercentageFragment newInstance(String param1, String param2) {
-        PercentageFragment fragment = new PercentageFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

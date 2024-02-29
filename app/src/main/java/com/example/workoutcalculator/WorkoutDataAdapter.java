@@ -20,16 +20,6 @@ public class WorkoutDataAdapter extends RecyclerView.Adapter<WorkoutDataAdapter.
 
     private static final List<WorkoutData> workoutDataList = new ArrayList<>();
 
-    public interface OnDeleteClickListener {
-        void onDeleteClick(WorkoutData workoutData);
-    }
-
-    private static OnDeleteClickListener onDeleteClickListener;
-
-    public void setOnDeleteClickListener(OnDeleteClickListener onDeleteClickListener){
-        WorkoutDataAdapter.onDeleteClickListener = onDeleteClickListener;
-    }
-
     public void setWorkoutDataList(List<WorkoutData> workoutDataList) {
         WorkoutDataAdapter.workoutDataList.clear();
         WorkoutDataAdapter.workoutDataList.addAll(workoutDataList);

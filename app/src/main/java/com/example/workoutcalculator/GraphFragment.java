@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,9 +56,19 @@ public class GraphFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_graph, container, false);
         LineChart graph = view.findViewById(R.id.graph);
 
+        Bundle args = getArguments();
+        if(args != null && args.containsKey("selectedMovement")){
+            String selectedMovement = args.getString("selectedMovement");
+            filterGraph(selectedMovement, graph);
+        }
+
+        return view;
+    }
+
+    private void filterGraph(String selectedMovement, LineChart graph) {
         List<WorkoutData> workoutDataList;
         try(WorkoutDatabaseHelper dbHelper = new WorkoutDatabaseHelper(getActivity())){
-           workoutDataList = dbHelper.getData();
+            workoutDataList = dbHelper.getDataByMovement(selectedMovement);
         }catch (Exception e){
             e.printStackTrace();
             workoutDataList = new ArrayList<>();
@@ -98,7 +109,5 @@ public class GraphFragment extends Fragment {
 
         graph.setData(lineData);
         graph.invalidate();
-
-        return view;
     }
 }

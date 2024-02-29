@@ -38,23 +38,12 @@ public class WorkoutData {
         return movement;
     }
 
-    public void setMovement(String movement) {
-        this.movement = movement;
-    }
-
     public String getWeight() {
         return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
     }
 
     public String getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(String dateAdded) {
-        this.dateAdded = dateAdded;
-    }
 }
